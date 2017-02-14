@@ -24,6 +24,7 @@ const styles = {
   title: {
     cursor: 'pointer',
   },
+
 };
 
 export default class Header extends React.Component {

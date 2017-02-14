@@ -13,25 +13,33 @@ const style ={
   borderRadius: 10,
 }
 
-const TaskRow = ({task, stateChangeMethods}) => {
+const TaskRow = ({task, actions}) => {
+  const taskStatus = task.progress === 100 ? 'done' : 'pending'
+  const taskProgress = task.progress + '%'
   return (
-    <div className={`task-row ${task.status}`}>
+    <div className={`task-row ${taskStatus}`}>
       <div className="task-info">
-        {task.category === 'work' ?
-          <FontIcon className="material-icons">work</FontIcon> :
-          <FontIcon className="material-icons">home</FontIcon>}
-        <span className='title-row'>{task.title} </span>
-        <span
-          className={task.category == 'work' ? 'category-row-work' : 'category-row-home'}>
-          {`(${task.category}) `}
-        </span>
-        {task.status === 'done' ?
+        <div>
+          <span className='title-row'>{task.title} </span>
+          <span
+            className='category-row'>
+            {`(${task.category} task) `}
+          </span>
+          {taskStatus === 'done' ?
           <div className="show-status">
             <span>DONE</span>
             <FontIcon className="material-icons">done</FontIcon>
           </div> :
-          <span className='date-row'>{`on ${task.date.toDateString()}`}</span>}
-      </div>
+          <span className='date-row'>{`on ${task.creationDate.toDateString()}`}</span>}
+        </div>
+        <div className="progress">
+          <div className="progress-bar"
+            role="progressbar"
+            style={{'minWidth': '6%', width: taskProgress}}>
+            {taskProgress}
+          </div>
+        </div>
+        </div>
       <div className="control">
         <IconMenu
            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
@@ -39,11 +47,11 @@ const TaskRow = ({task, stateChangeMethods}) => {
            targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
            style={style}>
             <MenuItem
-              primaryText={task.status === 'pending' ? 'mark as done' : 'mark as not done' }
-              onClick={() => stateChangeMethods.changeStatus(task.id)}/>
+              primaryText={taskStatus === 'pending' ? 'mark as done' : 'mark as not done' }
+              onClick={() => console.log('click')}/>
             <MenuItem
               primaryText="remove task"
-              onClick={() => stateChangeMethods.remove(task.id)}/>
+              onClick={() => console.log('click')}/>
         </IconMenu>
       </div>
     </div>
