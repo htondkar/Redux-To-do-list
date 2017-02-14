@@ -1,0 +1,69 @@
+.task-row-wrapper {
+  overflow: auto;
+  height: 500px;
+}
+.task-row {
+  height: 50px;
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.4);
+  font-size: 18px;
+  font-family: cursive;
+  line-height: 45px;
+}
+.task-row:hover {
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  background-color: #eee;
+}
+.done span{
+  transition: all 0.5s;
+  color: #aaa !important;
+}
+.pending span{
+  transition: all 0.5s;
+}
+.done {
+  box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
+}
+.task-info {
+  padding-left: 20px;
+  float: left;
+}
+.control {
+  float: right;
+}
+.show-status {
+  float: right;
+  font-size: 16px;
+  transition: all 0.5s;
+  margin-left: 15px
+}
+.show-status span{
+  color: #66D7E6 !important;
+  transition: all 0.5s;
+}
+
+.show-status span.material-icons{
+  transition: all 0.5s;
+}
+.material-icons {
+  margin: 0 5px;
+  top: 5px;
+  color: #9D72C8 !important;
+}
+.title-row {
+  font-weight: 600;
+}
+.category-row-home {
+  color: #66D7E6;
+}
+.category-row-work {
+color: #ff4081;
+}
+.date-row {
+  color: grey;
+  font-size: 16px;
+  font-family: sans-serif;
+}

@@ -1,0 +1,22 @@
+
+/*animation*/
+.task-enter {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+}
+.task-enter.task-enter-active {
+  background: #fff;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.task-leave {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.task-leave.task-leave-active {
+  opacity: 0;
+}
