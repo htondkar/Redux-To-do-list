@@ -1,6 +1,4 @@
 import React, {PropTypes} from 'react';
-import {browserHistory} from 'react-router';
-import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import TaskRow from './TaskRow';
 import ListPageFooter from './ListPageFooter';
@@ -34,7 +32,7 @@ export default class ListPage extends React.Component {
       <section>
         <div className='list-page'>
           <ul className="task-row-wrapper">
-            {this.props.tasks.length == 0 && 'Create a new task'}
+            {this.props.tasks.length === 0 && 'Create a new task'}
             {this.filterList().map((task) => {
               return <TaskRow
                 task={task}

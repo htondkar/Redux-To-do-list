@@ -1,13 +1,7 @@
 import React, {PropTypes} from 'react';
 import {browserHistory} from 'react-router';
 
-import Paper from 'material-ui/Paper';
-import Checkbox from 'material-ui/Checkbox';
-
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 
 const styles = {

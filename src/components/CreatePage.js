@@ -15,9 +15,9 @@ export default class CreatePage extends React.Component {
   }
 
   handleFormChange = event => {
-    if (typeof(event) == 'number') {
+    if (typeof(event) === 'number') {
       this.setState({progress: event});
-    } else if (event.target.nodeName == 'INPUT') {
+    } else if (event.target.nodeName === 'INPUT') {
       this.setState({title: event.target.value});
     } else {
       this.setState({description: event.target.value});

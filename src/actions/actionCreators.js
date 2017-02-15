@@ -1,7 +1,5 @@
 
 import * as actionTypes from './actionTypes';
-import {browserHistory} from 'react-router';
-
 
 export function clearAllTasks() {
   return {type: actionTypes.CLEAR_ALL_TASKS};

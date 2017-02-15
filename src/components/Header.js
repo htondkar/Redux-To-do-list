@@ -1,13 +1,21 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {browserHistory} from 'react-router';
 
 import AppBar from 'material-ui/AppBar'
-import MenuItem from 'material-ui/MenuItem';
-import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import ActionNoteAdd from 'material-ui/svg-icons/action/note-add';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ContentContentPaste from 'material-ui/svg-icons/content/content-paste';
+
+const styles = {
+  title: {
+    cursor: 'pointer',
+  },
+  addIcon: {
+    width: 35,
+    height: 35,
+    fill: 'hotpink'
+  }
+};
 
 const rightNav = () => (
   <IconButton
@@ -18,18 +26,6 @@ const rightNav = () => (
        <ActionNoteAdd />
   </IconButton>
 );
-
-const styles = {
-  title: {
-    cursor: 'pointer',
-  },
-  addIcon: {
-    width: 35,
-    height: 35,
-    fill: 'hotpink'
-  },
-
-};
 
 export default class Header extends React.Component {
 

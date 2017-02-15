@@ -14,9 +14,9 @@ export default class EditForm extends React.Component {
   }
 
   handleFormChange = event => {
-    if (typeof(event) == 'number') {
+    if (typeof(event) === 'number') {
       this.setState({progress: event})
-    } else if (event.target.nodeName == 'INPUT') {
+    } else if (event.target.nodeName === 'INPUT') {
       this.setState({title: event.target.value})
     } else {
       this.setState({description: event.target.value})
@@ -31,7 +31,7 @@ export default class EditForm extends React.Component {
 
   componentDidMount() {
     const self = this.props.tasks
-      .filter(task => task.id == this.props.params.taskId)[0];
+      .filter(task => task.id === this.props.params.taskId)[0];
     this.setState({...self});
   }
 

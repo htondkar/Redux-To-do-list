@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actionCreators';
