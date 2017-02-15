@@ -4,22 +4,23 @@ import {browserHistory} from 'react-router';
 import TaskForm from './TaskForm';
 
 export default class CreatePage extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       description: '',
       progress: 0,
-    }
+    };
   }
 
   handleFormChange = event => {
     if (typeof(event) == 'number') {
-      this.setState({progress: event})
+      this.setState({progress: event});
     } else if (event.target.nodeName == 'INPUT') {
-      this.setState({title: event.target.value})
+      this.setState({title: event.target.value});
     } else {
-      this.setState({description: event.target.value})
+      this.setState({description: event.target.value});
     }
   }
 
@@ -46,4 +47,6 @@ export default class CreatePage extends React.Component {
 }
 
 CreatePage.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.objectOf(PropTypes.func)
 };

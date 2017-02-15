@@ -50,4 +50,6 @@ export default class EditForm extends React.Component {
 }
 
 EditForm.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.objectOf(PropTypes.func)
 };

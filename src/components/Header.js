@@ -2,12 +2,12 @@ import React, {PropTypes} from 'react';
 import {browserHistory} from 'react-router';
 
 import AppBar from 'material-ui/AppBar'
-import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
+import ActionNoteAdd from 'material-ui/svg-icons/action/note-add';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ContentContentPaste from 'material-ui/svg-icons/content/content-paste';
-import ActionNoteAdd from 'material-ui/svg-icons/action/note-add';
 
 const rightNav = () => (
   <IconButton
@@ -24,10 +24,11 @@ const styles = {
     cursor: 'pointer',
   },
   addIcon: {
-    width: 30,
-    height: 30,
-    color: '#aaa',
-  }
+    width: 35,
+    height: 35,
+    fill: 'hotpink'
+  },
+
 };
 
 export default class Header extends React.Component {
@@ -39,17 +40,15 @@ export default class Header extends React.Component {
   render() {
     return (
       <AppBar
-        title={<span style={styles.title}>Todos</span>}
-        onTitleTouchTap={this.handleTitleClick}
-        onLeftIconButtonTouchTap={this.handleTitleClick}
         iconElementRight={rightNav()}
-        iconElementLeft={<IconButton><ContentContentPaste /></IconButton>}
+        onTitleTouchTap={this.handleTitleClick}
+        title={<span style={styles.title}>Todos</span>}
+        onLeftIconButtonTouchTap={this.handleTitleClick}
+        iconElementLeft={<IconButton><ContentContentPaste/></IconButton>}
         />
     );
   }
 }
-
-
 
 Header.propTypes = {
 };

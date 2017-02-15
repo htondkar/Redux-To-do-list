@@ -7,15 +7,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import bootstrap from '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import 'jquery';
 
-import './styles/reset.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './styles/reset.css';
 import './styles/main.css';
 import './styles/container.css';
 import './styles/taskRow.css';
 import './styles/animation.css';
-import './styles/scrollBar.css';
 import './styles/footer.css';
 import './styles/edit-form.css';
+import './styles/scrollBar.css';
 
 import store, {history} from './store/store';
 import routes from './routes/routes';

@@ -1,3 +1,3 @@
-add your token to src/gitConfig.js => npm install => npm start
+Clone the repo => npm install => npm start
 
-This project is done for Zoha-Kish Co.
+This test project is done for Zoha-Kish Co.

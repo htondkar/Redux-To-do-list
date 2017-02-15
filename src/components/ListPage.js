@@ -6,6 +6,7 @@ import TaskRow from './TaskRow';
 import ListPageFooter from './ListPageFooter';
 
 export default class ListPage extends React.Component {
+
   constructor(props) {
      super(props);
      this.state = {
@@ -33,6 +34,7 @@ export default class ListPage extends React.Component {
       <section>
         <div className='list-page'>
           <ul className="task-row-wrapper">
+            {this.props.tasks.length == 0 && 'Create a new task'}
             {this.filterList().map((task) => {
               return <TaskRow
                 task={task}
@@ -53,4 +55,6 @@ export default class ListPage extends React.Component {
 }
 
 ListPage.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.objectOf(PropTypes.func)
 };

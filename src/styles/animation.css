@@ -1,25 +1,6 @@
 
-/*animation*/
-.task-enter {
-	transition: all 450ms ease-in-out;
-	opacity: 0.01;
-	transform: translateX(-200%);
-}
-.task-enter .task-enter-active {
-  opacity: 1;
-	transform: translateX(0);
-}
-.task-leave {
-  opacity: 1;
-}
-.task-leave.task-leave-active {
-	transition: all 450ms ease-in-out;
-	opacity: 0.01;
-}
 
-
-
-/* routing animation*/
+/* routing transition*/
 .routing-enter {
 	opacity: 0;
 }

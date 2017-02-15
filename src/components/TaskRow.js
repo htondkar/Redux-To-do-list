@@ -55,6 +55,8 @@ const TaskRow = ({task, actions}) => {
 }
 
 TaskRow.propTypes = {
+  task: PropTypes.object,
+  actions: PropTypes.objectOf(PropTypes.func)
 };
 
 export default TaskRow;
