@@ -1,26 +1,33 @@
 import React, {PropTypes} from 'react';
+import {browserHistory} from 'react-router';
 
 import Paper from 'material-ui/Paper';
 import Checkbox from 'material-ui/Checkbox';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
 
+const styles = {
+  closeIcon: {
+    width: 20,
+    height: 20,
+    color: '#aaa',
+  }
+}
 
 const TaskRow = ({task, actions}) => {
-  const taskStatus = task.progress === 100 ? 'done' : 'pending'
-  const taskProgress = task.progress + '%'
+  const taskStatus = task.progress === 1 ? 'done' : 'pending'
+  const taskProgress = task.progress*100 + '%'
   return (
     <li className={`task-row ${taskStatus}`}>
-      <div className="task-info">
+      <div className="task-info" onClick={() => browserHistory.push(`edit/${task.id}`)}>
 
-        <div className='title-row'><span>{task.title} </span></div>
+        <div className='title-row'><span to={`edit/${task.id}`}>{task.title}</span></div>
 
         <div className="info-row">
-          {`${task.category} task | `}
           {`Created on ${task.creationDate.toDateString()}`}
         </div>
 
@@ -34,17 +41,14 @@ const TaskRow = ({task, actions}) => {
 
       </div>
       <div className="control">
-        <IconMenu
-           iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-           anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-           targetOrigin={{horizontal: 'left', vertical: 'bottom'}}>
-            <MenuItem
-              primaryText={taskStatus === 'pending' ? 'mark as done' : 'mark as not done' }
-              onClick={() => console.log('click')}/>
-            <MenuItem
-              primaryText="remove task"
-              onClick={() => console.log('click')}/>
-        </IconMenu>
+        <IconButton
+           iconStyle={styles.closeIcon}
+           hoveredStyle={styles.closeIconHover}
+           onClick={() => actions.removeTask(task.id)}
+           tooltip='remove task'
+           tooltipPosition="top-left">
+             <NavigationClose />
+        </IconButton>
       </div>
     </li>
   );
@@ -54,8 +58,3 @@ TaskRow.propTypes = {
 };
 
 export default TaskRow;
-
-{/* <div className="show-status">
-  <span>DONE</span>
-  <FontIcon className="material-icons">done</FontIcon>
-</div> : */}

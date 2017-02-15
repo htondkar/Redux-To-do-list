@@ -1,55 +1,29 @@
-const test = [{
-  title: 'sample task',
-  id: '12dsfsf1s5df15sd1f',
-  category: 'work',
-  progress: 0,
-  creationDate: new Date(),
-},
-{
-  title: 'sample task 2',
-  id: '212dsfsf1s5dfsdsfddf15sd1f',
-  category: 'home',
-  progress: 100,
-  creationDate: new Date(),
-},
-{
-  title: 'sample task 4',
-  id: '212dsfzvbzvcbsfds1s5df15sd1f',
-  category: 'home',
-  progress: 60,
-  creationDate: new Date(),
-},
-{
-  title: 'sample task 5',
-  id: '212dsfsfd,kj,jk,s1s5df15sd1f',
-  category: 'home',
-  progress: 60,
-  creationDate: new Date(),
-},
-{
-  title: 'sample task 6',
-  id: '212dsfsfdsytrtye1s5df15sd1f',
-  category: 'home',
-  progress: 60,
-  creationDate: new Date(),
-},
-{
-  title: 'sample task 7',
-  id: '212dsfsfdsvbcnc1s5df15sd1f',
-  category: 'home',
-  progress: 60,
-  creationDate: new Date(),
-}
-];
+import * as actionTypes from '../actions/actionTypes';
 
 export default function tasks(state = [], action) {
 
     switch (action.type) {
-        case 'xxxx':
 
+        case actionTypes.CLEAR_ALL_TASKS:
+          return [];
+          break;
 
-            break;
+        case actionTypes.REMOVE_TASK:
+          return state.filter(task => task.id !== action.taskId);
+          break;
+
+        case actionTypes.CREATE_NEW_TASK:
+          return [...state, action.data];
+          break;
+
+        case actionTypes.EDIT_TASK:
+          const nextState = state;
+          const index = state.findIndex(task => task.id === action.taskId);
+          nextState[index] = action.data;
+          return nextState;
+          break;
+
         default:
-            return test;
+            return state;
     }
 }

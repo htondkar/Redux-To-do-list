@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import {RouteTransition} from 'react-router-transition';
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actionCreators';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Header from './Header';
 
@@ -19,7 +19,6 @@ class Main extends React.Component {
   render() {
     return (
       <div id="container">
-
         <div className="wrap">
 
           <div className="title">
@@ -32,18 +31,13 @@ class Main extends React.Component {
               <Header/>
             </div>
 
-            <RouteTransition
-              pathname={this.props.location.pathname}
-              atEnter={{ opacity: 0 }}
-              atLeave={{ opacity: 0 }}
-              atActive={{ opacity: 1 }}>
-                {React.cloneElement(this.props.children, this.props)}
-            </RouteTransition>
+            <CSSTransitionGroup component='div' transitionName='routing' transitionAppear={false}
+              transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
+                {React.cloneElement(this.props.children, {...this.props, key: location.pathname})}
+            </CSSTransitionGroup>
 
           </div>
-
         </div>
-
       </div>
     )
   }

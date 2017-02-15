@@ -1,24 +1,35 @@
 
 /*animation*/
 .task-enter {
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
+	transition: all 450ms ease-in-out;
+	opacity: 0.01;
+	transform: translateX(-200%);
 }
-.task-enter.task-enter-active {
-  background: #fff;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+.task-enter .task-enter-active {
+  opacity: 1;
+	transform: translateX(0);
 }
 .task-leave {
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  opacity: 1;
 }
 .task-leave.task-leave-active {
-  opacity: 0;
-  -webkit-transform: translateX(-120%);
-          transform: translateX(-120%);
+	transition: all 450ms ease-in-out;
+	opacity: 0.01;
+}
+
+
+
+/* routing animation*/
+.routing-enter {
+	opacity: 0;
+}
+.routing-enter.routing-enter-active {
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+.routing-leave {
+  display: none;
+}
+.routing-leave.routing-leave-active {
+  display: none;
 }

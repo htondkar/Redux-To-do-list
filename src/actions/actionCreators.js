@@ -3,37 +3,18 @@ import * as actionTypes from './actionTypes';
 import {browserHistory} from 'react-router';
 
 
-// function beginAjaxCall(task) {
-//   return {
-//     type: actionTypes.AJAX_CALL_IN_PROGRESS,
-//     task: task
-//   };
-// }
-//
-// function redirectToDashboard(username){
-//    browserHistory.push(`/dashboard/${username}`)
-// }
-//
-//
-// function xxxxSuccess(forksList, xxx) {
-//   return {
-//     type: actionTypes.XXXX_SUCCESS,
-//     xxx
-//   };
-// }
-//
+export function clearAllTasks() {
+  return {type: actionTypes.CLEAR_ALL_TASKS};
+}
 
-//Log in - redux thunk
-export function logIn(username, password) {
-  return function (dispatch) {
-    // return (aSyncAction)
-    //     .then(
-    //     response => {
-    //       dispatch(successfulLogIn(response, username, password));
-    //       redirectToDashboard(username);
-    //     }
-    //     )
-    //     .catch(err=> {throw err})
-    // );
-  };
-};
+export function removeTask(taskId) {
+  return {type: actionTypes.REMOVE_TASK, taskId};
+}
+
+export function editTask(taskId, data) {
+  return {type: actionTypes.EDIT_TASK, taskId, data};
+}
+
+export function createNewTask(data) {
+  return {type: actionTypes.CREATE_NEW_TASK, data};
+}

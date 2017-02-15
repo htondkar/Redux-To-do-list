@@ -21,9 +21,9 @@ export default class ListPage extends React.Component {
     if (this.state.listType === 'all') {
       return this.props.tasks;
     } else if (this.state.listType === 'done') {
-      return this.props.tasks.filter(task => task.progress === 100)
+      return this.props.tasks.filter(task => task.progress === 1)
     } else {
-      return this.props.tasks.filter(task => task.progress !== 100)
+      return this.props.tasks.filter(task => task.progress !== 1)
     }
   }
 
@@ -33,24 +33,18 @@ export default class ListPage extends React.Component {
       <section>
         <div className='list-page'>
           <ul className="task-row-wrapper">
-            <CSSTransitionGroup
-                      className='task'
-                      component='ul'
-                      transitionName='task'
-                      transitionEnterTimeout={400}
-                      transitionLeaveTimeout={400}>
             {this.filterList().map((task) => {
-                  return <TaskRow
-                    task={task}
-                    key={task.id}
-                    actions={this.props.actions}/>})}
-            </CSSTransitionGroup>
+              return <TaskRow
+                task={task}
+                key={task.id}
+                actions={this.props.actions}/>})}
           </ul>
         </div>
         <div className="footer">
           <ListPageFooter
             taskCount={this.props.tasks.length}
             changeListType={this.handleListTypeChange}
+            clearAllTasks={this.props.actions.clearAllTasks}
           />
         </div>
       </section>

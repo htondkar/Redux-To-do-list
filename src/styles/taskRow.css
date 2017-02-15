@@ -10,7 +10,7 @@
   border-radius: 2px;
   margin: 15px auto;
   box-shadow: 0 3px 20px rgba(0,0,0,0.16), 0 3px 20px rgba(0,0,0,0.23);
-  transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+  transition: all 1s cubic-bezier(.25,.8,.25,1);
   font-size: 18px;
   font-family: cursive;
   line-height: 45px;
@@ -24,12 +24,17 @@
 .task-row:hover .info-row{
   color: #555;
 }
-.done span{
-  transition: all 0.5s;
-  color: #aaa !important;
+.task-info {
+  cursor: pointer;
 }
-.pending span{
-  transition: all 0.5s;
+.title-row a {
+  text-decoration: none;
+}
+.title-row {
+  transition: all 1s cubic-bezier(.25,.8,.25,1);
+}
+li.done div.task-info span {
+  color: grey;
 }
 .done {
   box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
@@ -44,7 +49,6 @@ li.done div.progress-bar{
 }
 .progress-bar {
   background-color: #00BCD4;
-  transition: all 1s;
 }
 .progress {
   box-shadow: 0 0 5px rgba(0,0,0,0.3);

@@ -1,30 +1,33 @@
 import React, {PropTypes} from 'react';
 import {browserHistory} from 'react-router';
 
-
 import AppBar from 'material-ui/AppBar'
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ContentContentPaste from 'material-ui/svg-icons/content/content-paste';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import ActionNoteAdd from 'material-ui/svg-icons/action/note-add';
 
 const rightNav = () => (
-  <IconMenu
-    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-    anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-    targetOrigin={{horizontal: 'left', vertical: 'top'}}
-  >
-    <MenuItem primaryText="Create a new Task" />
-  </IconMenu>
+  <IconButton
+     iconStyle={styles.addIcon}
+     onClick={()=>browserHistory.push('create')}
+     tooltip='Create a new Task'
+     tooltipPosition="top-left">
+       <ActionNoteAdd />
+  </IconButton>
 );
 
 const styles = {
   title: {
     cursor: 'pointer',
   },
-
+  addIcon: {
+    width: 30,
+    height: 30,
+    color: '#aaa',
+  }
 };
 
 export default class Header extends React.Component {
