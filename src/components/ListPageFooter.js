@@ -14,7 +14,7 @@ const style = {
 
 const ListPageFooter = ({taskCount, changeListType, clearAllTasks}) => {
   return (
-    <div className="footer-tools">
+    <footer className="footer-tools">
       <span className="info">
         {taskCount > 1 ? `${taskCount} Tasks` : `${taskCount} Tasks`}
       </span>
@@ -24,7 +24,7 @@ const ListPageFooter = ({taskCount, changeListType, clearAllTasks}) => {
         <li><RaisedButton label="active tasks" style={style.bottons} onClick={()=>changeListType('active')} /></li>
       </ul>
       <RaisedButton label="clear all" style={style.clearAll} onClick={clearAllTasks} />
-    </div>
+    </footer>
   );
 }
 

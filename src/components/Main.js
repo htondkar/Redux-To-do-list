@@ -17,22 +17,22 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="container">
+      <main id="container">
         <div className="wrap">
           <div className="title">
             <h1>To-do list</h1>
           </div>
           <div className="app-wrapper">
-            <div className="header">
+            <nav className="header">
               <Header/>
-            </div>
+            </nav>
             <CSSTransitionGroup component='div' transitionName='routing' transitionAppear={false}
               transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
                 {React.cloneElement(this.props.children, {...this.props, key: location.pathname})}
             </CSSTransitionGroup>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

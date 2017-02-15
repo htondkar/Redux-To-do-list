@@ -23,7 +23,7 @@ const TaskRow = ({task, actions}) => {
   const taskProgress = task.progress*100 + '%'
   return (
     <li className={`task-row ${taskStatus}`}>
-      <div className="task-info" onClick={() => browserHistory.push(`edit/${task.id}`)}>
+      <section className="task-info" onClick={() => browserHistory.push(`edit/${task.id}`)}>
 
         <div className='title-row'><span to={`edit/${task.id}`}>{task.title}</span></div>
 
@@ -39,8 +39,8 @@ const TaskRow = ({task, actions}) => {
           </div>
         </div>
 
-      </div>
-      <div className="control">
+      </section>
+      <section className="control">
         <IconButton
            iconStyle={styles.closeIcon}
            hoveredStyle={styles.closeIconHover}
@@ -49,7 +49,7 @@ const TaskRow = ({task, actions}) => {
            tooltipPosition="top-left">
              <NavigationClose />
         </IconButton>
-      </div>
+      </section>
     </li>
   );
 }

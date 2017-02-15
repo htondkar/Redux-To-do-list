@@ -16,7 +16,7 @@ const styles = {
 
 const TaskForm = ({handleFormChange, title = '', description = '', progress = 0, handleSave}) => {
   return (
-    <div className="edit-form">
+    <form className="edit-form">
       <TextField hintText="Task Title" onChange={handleFormChange} value={title}/>
       <br/>
       <TextField hintText="Description" style={styles.description} value={description}
@@ -27,7 +27,7 @@ const TaskForm = ({handleFormChange, title = '', description = '', progress = 0,
       <div className='progress-info'>{`Task progress: ${(progress*100).toFixed(2)}%`}</div>
       <RaisedButton label="save" primary={true} style={styles.button}
         onClick={handleSave}/>
-    </div>);
+    </form>);
 }
 
 TaskForm.propTypes = {

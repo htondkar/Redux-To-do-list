@@ -42,13 +42,13 @@ export default class ListPage extends React.Component {
                 actions={this.props.actions}/>})}
           </ul>
         </div>
-        <div className="footer">
+        <footer className="footer">
           <ListPageFooter
             taskCount={this.props.tasks.length}
             changeListType={this.handleListTypeChange}
             clearAllTasks={this.props.actions.clearAllTasks}
           />
-        </div>
+        </footer>
       </section>
     );
   }
