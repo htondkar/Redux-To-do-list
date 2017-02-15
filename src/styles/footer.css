@@ -1,0 +1,28 @@
+.footer {
+  height: 76px;
+  padding: 10px 22px;
+  /*border-top: 1px solid #ccc;*/
+  color: #888;
+  box-shadow: 0 -3px 6px rgba(0,0,0,0.16), 0 -3px 6px rgba(0,0,0,0.23);
+}
+.footer-tools ul.footer-bottons {
+  list-style: none;
+  display: inline-block;
+}
+.footer-tools ul.footer-bottons li {
+  display: inline;
+}
+.footer-tools span.info {
+  margin-right: 20px;
+  font-size: 16px;
+  position: relative;
+  top: 1px;
+}
+.footer-bottons {
+  margin-bottom: 0;
+}
+.footer-tools {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

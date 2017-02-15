@@ -9,29 +9,21 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 
-const style ={
-  borderRadius: 10,
-}
 
 const TaskRow = ({task, actions}) => {
   const taskStatus = task.progress === 100 ? 'done' : 'pending'
   const taskProgress = task.progress + '%'
   return (
-    <div className={`task-row ${taskStatus}`}>
+    <li className={`task-row ${taskStatus}`}>
       <div className="task-info">
-        <div>
-          <span className='title-row'>{task.title} </span>
-          <span
-            className='category-row'>
-            {`(${task.category} task) `}
-          </span>
-          {taskStatus === 'done' ?
-          <div className="show-status">
-            <span>DONE</span>
-            <FontIcon className="material-icons">done</FontIcon>
-          </div> :
-          <span className='date-row'>{`on ${task.creationDate.toDateString()}`}</span>}
+
+        <div className='title-row'><span>{task.title} </span></div>
+
+        <div className="info-row">
+          {`${task.category} task | `}
+          {`Created on ${task.creationDate.toDateString()}`}
         </div>
+
         <div className="progress">
           <div className="progress-bar"
             role="progressbar"
@@ -39,13 +31,13 @@ const TaskRow = ({task, actions}) => {
             {taskProgress}
           </div>
         </div>
-        </div>
+
+      </div>
       <div className="control">
         <IconMenu
            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-           targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
-           style={style}>
+           targetOrigin={{horizontal: 'left', vertical: 'bottom'}}>
             <MenuItem
               primaryText={taskStatus === 'pending' ? 'mark as done' : 'mark as not done' }
               onClick={() => console.log('click')}/>
@@ -54,7 +46,7 @@ const TaskRow = ({task, actions}) => {
               onClick={() => console.log('click')}/>
         </IconMenu>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -62,3 +54,8 @@ TaskRow.propTypes = {
 };
 
 export default TaskRow;
+
+{/* <div className="show-status">
+  <span>DONE</span>
+  <FontIcon className="material-icons">done</FontIcon>
+</div> : */}

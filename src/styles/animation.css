@@ -1,8 +1,8 @@
 
 /*animation*/
 .task-enter {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
   -webkit-transform: translateX(-120%);
           transform: translateX(-120%);
 }
@@ -12,11 +12,13 @@
           transform: translateX(0);
 }
 .task-leave {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 .task-leave.task-leave-active {
   opacity: 0;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
 }

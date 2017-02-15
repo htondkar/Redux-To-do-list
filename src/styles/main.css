@@ -38,3 +38,6 @@
 .list-page, .edit-page, .create-page {
   padding: 20px;
 }
+.list-page {
+  padding-bottom: 0;
+}

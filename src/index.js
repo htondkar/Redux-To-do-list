@@ -14,6 +14,7 @@ import './styles/container.css';
 import './styles/taskRow.css';
 import './styles/animation.css';
 import './styles/scrollBar.css';
+import './styles/footer.css';
 
 import store, {history} from './store/store';
 import routes from './routes/routes';
