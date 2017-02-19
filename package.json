@@ -1,7 +1,6 @@
 {
   "name": "Zoha-To-Do",
   "version": "0.1.0",
-  "author": "HamidReza Tondkaran",
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.6.1",
@@ -54,8 +53,10 @@
   },
   "dependencies": {
     "babel-polyfill": "6.20.0",
+    "bootstrap": "^3.3.7",
     "jquery": "3.1.1",
     "json-markup": "^1.1.0",
+    "material-ui": "^0.17.0",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -70,9 +71,33 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "build-css": "node-sass --include-path scss src/styles.scss src/styles.css",
+    "build-css": "node-sass --include-path scss src/styles/*.scss src/styles/styles.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "test": "node scripts/test.js --env=jsdom"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>\\config\\polyfills.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>\\config\\jest\\cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>\\config\\jest\\fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    }
   },
   "babel": {
     "presets": [
